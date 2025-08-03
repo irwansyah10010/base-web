@@ -1,3 +1,3 @@
-# Web base backoffice using thymeleaf
+# Web base using thymeleaf
 Requirement
 Java 17
