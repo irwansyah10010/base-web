@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="mb-0 text-white">Filter</h4>
+    </div>
+    <div class="card-body">
+        <form class="d-flex flex-wrap" id="filter-form" th:action="${filterAction}" method="POST">
+            <div class="d-flex flex-wrap mb-2 me-2">
+                <div class="input-group">
+                    <span class="input-group-text"><i data-feather="log-out" class="feather-sm fill-white"></i></span>
+                    <div th:utext="${comboSwitcher}" th:remove="tag"></div>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap mb-2 me-2">
+                <div class="input-group">
+                    <span class="input-group-text"><i data-feather="log-in" class="feather-sm fill-white"></i></span>
+                    <input type="text" id="filterGLAndFeeDestinationId" name="filterGLAndFeeDestinationId" class="form-control" placeholder="Destination">
+                    
+                    <!-- <div th:utext="${comboDestinationId}" th:remove="tag"></div> -->
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-outline-primary mb-2 me-2 btn-clear-filter"><i class="bi-eraser"></i></button>
+            <button type="button" id="filter-ajax-btn" class="btn btn-primary mb-2" data-table="#main-datatable">Filter</button>
+            <button id="filter-ajax-loader" class="btn btn-outline-primary float-right mb-2" type="button" disabled style="display: none">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                loading...
+            </button>
+        </form>
+    </div>
+</div>

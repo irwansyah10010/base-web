@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-header bg-primary">
+                        <div class="text-center text-white display-7">
+                            <i class="ri-remote-control-fill"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" id="action" th:value="${urlAction}"/>
+                        <div class="row mb-3">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="card overflow-hidden mb-0">
+                                    <div class="card-header bg-info">
+                                        <h4 class="mb-0 text-white">Integration Server</h4>
+                                    </div>
+                                    <div class="card-body bg-light-info">
+                                        <button id="ajax-loader-integrationserver" class="btn btn-info" type="button" disabled style="display: none">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                        </button>
+                                        <button type="button" class="btn btn-info btn-shortcut" action-type="integrationserver" action-group="integrationserver">Reload Company List</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="card overflow-hidden mb-0">
+                                    <div class="card-header bg-primary">
+                                        <h4 class="mb-0 text-white">DIGIT Portal</h4>
+                                    </div>
+                                    <div class="card-body bg-light-primary">
+                                        <button id="ajax-loader-portaljalin" class="btn btn-primary" type="button" disabled style="display: none">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-shortcut" action-type="portaldigit" action-group="portaljalin">Init Cache</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dev 96">
+    <meta name="author" content="Dev 96">
+    <!-- <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/> -->
+
+    <!--    <meta http-equiv="Content-Security-Policy">-->
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" th:href="@{/assets/images/logos/favicon.png}">
+    <link rel="apple-touch-icon" th:href="@{/assets/images/logos/apple-touch-icon-57x57.png}">
+    <link rel="apple-touch-icon" sizes="72x72" th:href="@{/assets/images/logos/apple-touch-icon-72x72.png}">
+    <link rel="apple-touch-icon" sizes="114x114" th:href="@{/assets/images/logos/apple-touch-icon-114x114.png}">
+
+    <title> DBWeb - <span th:text="${title}" th:remove="tag"></span></title>
+
+    <!-- Lib CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/lib/style.min.css}"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/features/global.css}"/>
+
+    <!-- Lib CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/toastr/toastr.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/sweetalert2/11.14.3/dist/sweetalert2.min.css}"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+
+<!-- Bootstrap tether Core JavaScript -->
+<script th:src="@{/vendor/toastr/toastr.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+
+<!-- apps -->
+<script th:src="@{/assets/js/lib/app.min.js}"></script>
+<script th:src="@{/assets/js/features/app-init-by-lib.js}"></script>
+<script th:src="@{/assets/js/lib/app-style-switcher.js}"></script>
+
+<!-- slimscrollbar scrollbar JavaScript -->
+<script th:src="@{/webjars/perfect-scrollbar/0.6.11/js/perfect-scrollbar.jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery.sparkline/2.1.2/jquery.sparkline.min.js}"></script>
+
+<!-- SweetAlert2 -->
+<script th:src="@{/webjars/sweetalert2/11.14.3/dist/sweetalert2.all.min.js}"></script>
+
+<!--Wave Effects -->
+<script th:src="@{/assets/js/lib/waves.js}"></script>
+
+<!--Menu sidebar -->
+<script th:src="@{/assets/js/lib/sidebarmenu.js}"></script>
+
+<!--Custom JavaScript -->
+<script th:src="@{/assets/js/lib/feather.min.js}"></script>
+<script th:src="@{/assets/js/features/customize-design-by-lib.min.js}"></script>
+
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <svg
+            class="tea lds-ripple"
+            width="37"
+            height="48"
+            viewbox="0 0 37 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+                d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z"
+                stroke="#fec80e"
+                stroke-width="2"
+        ></path>
+        <path
+                d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34"
+                stroke="#fec80e"
+                stroke-width="2"
+        ></path>
+        <path
+                id="teabag"
+                fill="#fec80e"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z"
+        ></path>
+        <path
+                id="steamL"
+                d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#fec80e"
+        ></path>
+        <path
+                id="steamR"
+                d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13"
+                stroke="#fec80e"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+        ></path>
+    </svg>
+</div>
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================= -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================= -->
+    <header class="topbar" th:include="component/header"></header>
+    
+    <!-- ============================================================= -->
+    <!-- End Topbar header -->
+    <!-- ============================================================= -->
+
+    
+    <!-- ============================================================= -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================= -->
+    <aside class="left-sidebar" th:include="component/asidebar"></aside>
+
+    <!-- ============================================================= -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================= -->
+    <!-- ============================================================= -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================= -->
+    <div class="page-wrapper">
+        <!-- <div class="alert customize-alert text-danger alert-light-danger fade show mb-0" role="alert" th:if="${session.formError!=null && #strings.length(session.formError)>0}">
+            <div class="font-weight-light text-center">
+                <span th:utext="${session.formError}"></span>
+                <span th:text="${@common.removeSessionAttribute('formError')}" th:remove="tag"></span>
+            </div>
+        </div>
+        <div class="alert customize-alert text-warning alert-light-warning fade show mb-0" role="alert" th:if="${session.formWarning!=null && #strings.length(session.formWarning)>0}">
+            <div class="font-weight-light text-center">
+                <span th:utext="${session.formWarning}"></span>
+                <span th:text="${@common.removeSessionAttribute('formWarning')}" th:remove="tag"></span>
+            </div>
+        </div>
+        <div class="alert customize-alert text-success alert-light-success fade show mb-0" role="alert" th:if="${session.formSuccess!=null && #strings.length(session.formSuccess)>0}">
+            <div class="font-weight-light text-center">
+                <span th:utext="${session.formSuccess}"></span>
+                <span th:text="${@common.removeSessionAttribute('formSuccess')}" th:remove="tag"></span>
+            </div>
+        </div> -->
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-titles">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                    <h1 class="mb-0 fw-bold" th:text="${title}"></h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 d-flex align-items-center">
+                            <li class="breadcrumb-item active" th:each="module : ${hierarchyModule}" th:text="${module}"></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class=" col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end" th:if="${allowAdd}">
+                    <button id="ajax-loader-add" class="btn btn-outline-primary" type="button" disabled style="display: none">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                    <span id="btn-add" th:attr="data-url=${urlForm}, data-mode='add', data-title=${'Add '+title}" class="btn btn-primary align-items-center ms-2" style="display:flex;"><i class="ri-add-line me-1"></i>Add New</span>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================= -->
+        <!-- Container fluid  -->
+        <!-- ============================================================= -->
+        <div class="container-fluid">
+            <!-- ============================================================= -->
+            <!-- Start Page Content -->
+            <!-- ============================================================= -->
+            <div th:include="${content}"></div>
+            <!-- ============================================================= -->
+            <!-- End PAge Content -->
+            <!-- ============================================================= -->
+        </div>
+        <!-- ============================================================= -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================= -->
+        <!-- ============================================================= -->
+        <!-- footer -->
+        <!-- ============================================================= -->
+        <footer class="footer text-center">
+            © 2022 PT Dev 96 (Persero) Tbk.
+        </footer>
+        <!-- ============================================================= -->
+        <!-- End footer -->
+        <!-- ============================================================= -->
+    </div>
+    <!-- ============================================================= -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================= -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- customizer Panel -->
+<!-- ============================================================== -->
+<script type="text/javascript"></script>
+</body>
+
+</html>

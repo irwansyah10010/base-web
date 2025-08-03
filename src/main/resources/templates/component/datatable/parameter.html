@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-header bg-primary">
+                <div class="text-center text-white display-7">
+                    <i class="ri-quill-pen-line"></i>
+                </div>
+            </div>
+            <div class="card-body">
+                <input type="hidden" id="action" th:value="${urlAction}"/>
+                <form id="myform" method="POST">
+                    <input type="hidden" name="_csrf" id="csrf_token" th:value="${_csrf.token}" />
+                    <ul class="list-group" >
+                        <li class="list-group-item" th:each="setting : ${settings}">
+                            <div class="row">
+                                <div class="col-sm-5"><span th:text="${setting.key}"></span> <span class="badge font-weight-medium bg-light-secondary text-secondary ms-1" th:text="${setting.appType}"></span> <br> <small class="text-muted" th:text="${setting.description}"></small></div>
+                                <div class="col-sm-7">
+                                    <input th:type="${setting?.formatType}" class="form-control" th:id="${setting.key}" th:name="${setting.key}" autocomplete="off" th:value="${setting?.value}" required>
+                                    <div class="invalid-feedback" th:id="${ 'error_'+setting.key }"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="card-footer text-center" id="btn-action">
+                <span id="ajax-loader" class="spinner-border text-primary" role="status" style="display: none"></span>
+                <div class="btn-group-sm mb-0" id="ajax-btn" role="group">
+                    <button type="button" class="btn btn-primary btn-action" id="btn-submit-this">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

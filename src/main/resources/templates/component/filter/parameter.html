@@ -1,0 +1,23 @@
+
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="mb-0 text-white">Filter</h4>
+    </div>
+    <div class="card-body">
+        <form class="d-flex flex-wrap" id="filter-form" th:action="${filterAction}" method="POST">
+            <div class="d-flex flex-wrap mb-2 me-2">
+                <div class="input-group">
+                    <span class="input-group-text"><i data-feather="layers" class="feather-sm fill-white"></i></span>
+                    <div th:utext="${comboAppType}" th:remove="tag"></div>
+                </div>
+            </div>
+            <button type="button" id="filter-ajax-btn" class="btn btn-primary mb-2">Filter</button>
+            <button id="filter-ajax-loader" class="btn btn-outline-primary float-right mb-2" type="button" disabled style="display: none">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                loading...
+            </button>
+            <a th:href="${urlPair}" target="_blank" style="display:none;" id="btnPairAgent" type="button" class="btn btn-primary btn-sm ml-3">Pair Agent</a>
+        </form>
+    </div>
+</div>
+

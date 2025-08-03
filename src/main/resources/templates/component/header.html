@@ -1,0 +1,98 @@
+<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+    <div class="navbar-header">
+        <!-- This is for the sidebar toggle which is visible on mobile only -->
+        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ri-close-line ri-menu-2-line fs-6"></i></a>
+
+
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <a class="navbar-brand" th:href="@{/}">
+            <!-- Logo icon -->
+            <b class="logo-icon">
+                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <img th:src="@{/assets/images/logos/bishub-logo.png}" alt="homepage" class="dark-logo" />
+                <!-- Light Logo icon -->
+                <img th:src="@{/assets/images/logos/bishub-light-logo.png}" alt="homepage" class="light-logo" />
+            </b>
+            <!--End Logo icon -->
+
+            <!-- Logo text -->
+            <span class="logo-text">
+                <!-- dark Logo text -->
+                <img th:src="@{/assets/images/logos/logo-text.png}" alt="homepage" class="dark-logo"/>
+                <!-- Light Logo text -->
+                    <img th:src="@{/assets/images/logos/logo-light-text.png}" class="light-logo" alt="homepage" width="110%" />
+            </span>
+        </a>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Toggle which is visible on mobile only -->
+        <!-- ============================================================== -->
+        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ri-more-line fs-6"></i></a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Logo -->
+    <!-- ============================================================== -->
+
+
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <!-- ============================================================== -->
+        <!-- toggle and nav items -->
+        <!-- ============================================================== -->
+        <ul class="navbar-nav me-auto">
+            <!-- This is  -->
+            <li class="nav-item">
+                <a class="nav-link sidebartoggler d-none d-md-block" href="javascript:void(0)"><i data-feather="menu"></i></a>
+            </li>
+        </ul>
+        <!-- ============================================================== -->
+        <!-- Right side toggle and nav items -->
+        <!-- ============================================================== -->
+        <ul class="navbar-nav">
+            <!-- ============================================================== -->
+            <!-- Profile -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown profile-dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img th:src="@{/assets/images/users/1.jpg}" alt="user" width="30" class="profile-pic rounded-circle"/>
+                    <div class="d-none d-md-flex">
+                        <span class="ms-2">Hi, <span class="text-dark fw-bold" th:text="${session.username}"></span></span>
+                        <span><i data-feather="chevron-down" class="feather-sm"></i></span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end mailbox dropdown-menu-animate-up">
+                    <ul class="list-style-none">
+                        <li class="p-30 pb-2">
+                            <div class="rounded-top d-flex align-items-center">
+                                <h3 class="card-title mb-0">User Profile</h3>
+                                <div class="ms-auto">
+                                    <a href="javascript:void(0)" class="link py-0"><i data-feather="x-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class=" d-flex align-items-center mt-4 pt-3 pb-4 border-bottom">
+                                <img th:src="@{/assets/images/users/1.jpg}" alt="user" width="90" class="rounded-circle"/>
+                                <div class="ms-4">
+                                    <h4 class="mb-0" th:text="${session.fullName}"></h4>
+                                    <span class="text-muted" th:text="${session.nip}"></span>
+                                    <p class="text-muted mb-0 mt-1">
+                                        <i data-feather="mail" class="feather-sm me-1"></i><span th:text="${session.email}"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="p-30 pt-0">
+                            <div class="row mt-4">
+                                <div class="col-6"><a th:href="@{/userrole/profile}" class="btn btn-primary text-white"><i data-feather="user" class="feather-sm fill-white me-2"></i>Profile</a></div>
+                                <div class="col-6"><a th:href="@{/logout}" class="btn btn-danger text-white"><i data-feather="log-out" class="feather-sm fill-white me-2"></i>Logout</a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

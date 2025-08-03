@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="main-datatable" class="display table" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th th:each="header: ${headerDatatables}" th:text="${header}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="dataTables_empty"><img th:src="@{/assets/images/loader/ajax-loader-sm.gif}" /> Loading Data... </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/vendor/datatables.net/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/assets/js/features/init-datatable-by-lib.js}"></script>
+<script>
+    $(document).ready(function(){
+
+        $('#main-datatable').DataTable( {
+            processing: true,
+            serverSide: true,
+            pageLength: 10,
+            paginationType: "full_numbers",
+            ajax: {
+                url: urlDatatable,
+                type: "POST",
+                contentType:"application/json",
+                data: (d)=>{
+                    return JSON.stringify({
+                        page: (d.start / d.length), 
+                        size: d.length
+                    })
+                }
+            },
+            columns: tableColumns
+        });
+    });
+</script>

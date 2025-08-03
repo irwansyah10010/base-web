@@ -1,0 +1,48 @@
+<!-- Sidebar scroll-->
+<div class="scroll-sidebar">
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+        <ul id="sidebarnav">
+            <li class="nav-small-cap">
+                <i class="nav-small-line"></i>
+                <span class="hide-menu">Dashboards</span>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" th:href="@{/}" aria-expanded="false"><i data-feather="home"></i><span class="hide-menu">Home</span></a>
+            </li>
+            <li class="sidebar-item" style="display:none;">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" th:href="@{/userrole/profile/}" aria-expanded="false"><i data-feather="user"></i><span class="hide-menu">My Profile</span></a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i data-feather="pie-chart"></i><span class="hide-menu">Dashboard</span></a>
+                <ul aria-expanded="false" class="collapse first-level">
+                    <li class="sidebar-item"><a th:href="@{/dashboard/live-status/}" class="sidebar-link"><i class="ri-bar-chart-horizontal-fill"></i><span class="hide-menu">Live Status</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-small-cap">
+                <i class="nav-small-line"></i>
+                <span class="hide-menu">Apps</span>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i data-feather="users"></i><span class="hide-menu">User & Role</span></a>
+                <ul aria-expanded="false" class="collapse first-level">
+                    <li class="sidebar-item"><a th:href="@{/user-role/user/}" class="sidebar-link"><i class="ri-user-2-fill"></i><span class="hide-menu">User</span></a></li>
+                    <li class="sidebar-item"><a th:href="@{/user-role/role/}" class="sidebar-link"><i class="bi-diagram-3-fill"></i><span class="hide-menu">Role</span></a></li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="bi-cloud-download"></i><span class="hide-menu">Download</span></span></a>
+                        <ul aria-expanded="false" class="collapse second-level">
+                            <li class="sidebar-item"><a th:href="@{/userrole/index?page=user/download/}" class="sidebar-link"><i class="ri-user-2-fill"></i><span class="hide-menu">User</span></a></li>
+                            <li class="sidebar-item"><a th:href="@{/userrole/index?page=role/download/}" class="sidebar-link"><i class="bi-diagram-3-fill"></i><span class="hide-menu">Role</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" th:href="@{/logout}" aria-expanded="false"><i data-feather="log-out"></i><span class="hide-menu">Log Out</span></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+</div>
+<!-- End Sidebar scroll-->
